@@ -8,6 +8,12 @@
   </div>
 </template>
 
+<style scoped>
+    .todo-list {
+        flex: 1;
+    }
+</style>
+
 <script>
 import  TodoItem  from "./TodoItem";
 export default {

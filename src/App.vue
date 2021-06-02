@@ -34,17 +34,17 @@ export default {
         {
           _id: '1',
           title: 'Walk the dog',
-          description: 'Go to forrest near the Zoo'
+          description: 'Go to forest near the zoo'
         },
         {
           _id: '2',
-          title: 'Buy a bread',
+          title: 'Buy bread',
           description: 'Whole grain bread would be good'
         },
         {
           _id: '3',
           title: 'Learn Programming',
-          description: 'Preferable Tomorrow!'
+          description: 'Preferably Tomorrow!'
         }
       ]
     }
@@ -70,11 +70,17 @@ export default {
 }
 
 .todo-container{
+  display:flex;
+  flex-direction: column;
   width: 400px;
   min-height: 400px;
   background-color: #ededed;
   justify-content: center;
   
+}
+
+.todo-create-btn-container {
+  margin: 10px;
 }
 
 .app-button {
@@ -84,6 +90,10 @@ export default {
   background-color: #795899;
   color: white;
   font-weight: bold;
+}
+
+.app-button:hover {
+  cursor: pointer;
 }
 .modal {
   display: none;
