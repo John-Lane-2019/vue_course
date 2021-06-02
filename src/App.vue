@@ -2,15 +2,13 @@
   <div id="app">
     <div class="todo-wrapper">
         <div class="todo-container">
-          <todo-list></todo-list>
+          <todo-list :todos="todos"/>
         </div>
     </div>
   </div>
 </template>
-
 <script>
-
-import  TodoList  from "./components/TodoList";
+import TodoList from "./components/TodoList";
 export default {
   name: 'app',
   created(){
@@ -20,7 +18,27 @@ export default {
     TodoList
     
   },
-  
+  data() {
+    return {
+      todos: [
+        {
+          _id: '1',
+          title: 'Walk the dog',
+          description: 'Go to forrest near the Zoo'
+        },
+        {
+          _id: '2',
+          title: 'Buy a bread',
+          description: 'Whole grain bread would be good'
+        },
+        {
+          _id: '3',
+          title: 'Learn Programming',
+          description: 'Preferable Tomorrow!'
+        }
+      ]
+    }
+  },
 }
 </script>
 
