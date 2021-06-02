@@ -4,17 +4,10 @@
         <div class="todo-container">
           <todo-list :todos="todos"/>
           <div class="todo-create-btn-container">
-          <div 
-            @click="isModalOpen=true" 
-            class="app-button">
-            Create
-          </div>
+             <Modal/>
         </div>
       </div>
     </div>
-    <Modal 
-      @modalClosed="isModalOpen=false"
-      :isOpen="isModalOpen"/>
   </div>
 </template>
 <script>
@@ -32,7 +25,6 @@ export default {
   },
   data() {
     return {
-      isModalOpen: false,
       todos: [
         {
           _id: '1',
@@ -52,15 +44,6 @@ export default {
       ]
     }
   },
-  methods: {
-    openModal() {
-      this.isModalOpen = true
-    },
-    closeModal(data) {
-      console.log(data.value)
-      this.isModalOpen = false
-    }
-  }
 }
 </script>
 
@@ -75,26 +58,6 @@ export default {
   border-radius: 5px;
 }
 
-.todo-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.todo-container{
-  display:flex;
-  flex-direction: column;
-  width: 400px;
-  min-height: 400px;
-  background-color: #ededed;
-  justify-content: center;
-  
-}
-
-.todo-create-btn-container {
-  margin: 10px;
-}
-
 .app-button {
   font-size: 20px;
   padding: 10px;
@@ -107,4 +70,28 @@ export default {
 .app-button:hover {
   cursor: pointer;
 }
+
+.todo-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo-container{
+  display:flex;
+  flex-direction: column;
+  width: 400px;
+  min-height: 400px;
+  background-color: #ededed;
+  /* justify-content: center; */
+  border-radius: 5px;
+}
+
+.todo-create-btn-container {
+  margin: 10px;
+}
+
+
+
+
 </style>
