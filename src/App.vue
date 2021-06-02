@@ -56,6 +56,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   border-radius: 5px;
+  text-align: left;
 }
 
 .app-button {
@@ -65,6 +66,10 @@ export default {
   background-color: #795899;
   color: white;
   font-weight: bold;
+}
+
+.is-primary {
+  background: green !important;
 }
 
 .app-button:hover {
