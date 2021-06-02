@@ -4,13 +4,15 @@
         <div class="todo-container">
           <todo-list :todos="todos"/>
           <div class="todo-create-btn-container">
-          <div class="app-button">
+          <div 
+            @click="openModal" 
+            class="app-button">
             Create
           </div>
         </div>
       </div>
     </div>
-    <modal/>
+    <Modal :isOpen="isModalOpen"/>
   </div>
 </template>
 <script>
@@ -28,6 +30,7 @@ export default {
   },
   data() {
     return {
+      isModalOpen: false,
       todos: [
         {
           _id: '1',
@@ -47,6 +50,11 @@ export default {
       ]
     }
   },
+  methods: {
+    openModal() {
+      this.isModalOpen = !this.isModalOpen;
+    }
+  }
 }
 </script>
 
@@ -93,5 +101,4 @@ export default {
 .app-button:hover {
   cursor: pointer;
 }
-
 </style>

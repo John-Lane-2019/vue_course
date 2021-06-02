@@ -1,20 +1,33 @@
 <template>
-<div class="modal" :class="{'is-active': isActive}">
+<div class="modal" :class="{'is-active': isOpen}">
     <div class="modal-content">
-      Modal Window
+      <span class="close">&times;</span>
+      <p>Modal Window</p>
     </div>
   </div>
 </template>    
 <script>
 export default {
-   data(){
-       return {
-           isActive: true
-       }
+   props: {
+     isOpen: {
+       required: true,
+       type: Boolean
+     } 
    }
 }
 </script>
 <style scoped>
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 8px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
 .modal {
   display: none;
   position: fixed; 
