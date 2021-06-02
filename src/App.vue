@@ -5,14 +5,16 @@
           <todo-list :todos="todos"/>
           <div class="todo-create-btn-container">
           <div 
-            @click="openModal" 
+            @click="isModalOpen=true" 
             class="app-button">
             Create
           </div>
         </div>
       </div>
     </div>
-    <Modal :isOpen="isModalOpen"/>
+    <Modal 
+      @modalClosed="isModalOpen=false"
+      :isOpen="isModalOpen"/>
   </div>
 </template>
 <script>
@@ -35,7 +37,7 @@ export default {
         {
           _id: '1',
           title: 'Walk the dog',
-          description: 'Go to forest near the zoo'
+          description: 'Go to the forest near the zoo'
         },
         {
           _id: '2',
@@ -52,7 +54,11 @@ export default {
   },
   methods: {
     openModal() {
-      this.isModalOpen = !this.isModalOpen;
+      this.isModalOpen = true
+    },
+    closeModal(data) {
+      console.log(data.value)
+      this.isModalOpen = false
     }
   }
 }
