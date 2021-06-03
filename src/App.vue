@@ -21,7 +21,6 @@ export default {
   components: {
     TodoList,
     Modal
-    
   },
   data() {
     return {

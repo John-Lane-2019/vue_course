@@ -10,14 +10,23 @@
         <span @click="isOpen = false" class="close">&times;</span>
         <form class="app-form">
           <div class="form-control">
-            <label class="label">Text</label>
-            <input class="form-input" type="text">
+            <label class="label">Title</label>
+            <input
+              v-model="form.title" 
+              class="form-input" 
+              type="text"> <!--two-way binding-->
           </div>
           <div class="form-control">
             <label class="label">Description</label>
-            <input class="form-input" type="text">
+            <input
+              v-model="form.description" 
+              class="form-input" 
+              type="text">
           </div>
-          <button type="button" class="app-button is-primary">Confirm</button>
+          <button
+            @click="createTodo" 
+            type="button" 
+            class="app-button is-primary">Confirm</button>
         </form> <!--default button type is "submit" which refreshes form -->
       </div>
     </div>
@@ -27,7 +36,16 @@
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      form: {
+        title: '',
+        description: ''
+      }
+    }
+  },
+  methods: {
+    createTodo() {
+      console.log(this.form.description, this.form.title)
     }
   }
 }
