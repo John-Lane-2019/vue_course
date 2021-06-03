@@ -4,7 +4,7 @@
         <div class="todo-container">
           <todo-list :todos="todos"/>
           <div class="todo-create-btn-container">
-             <TodoCreate/>
+             <todo-create @formSubmitted="createTodo"/>
         </div>
       </div>
     </div>
@@ -15,9 +15,6 @@ import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
 export default {
   name: 'app',
-  created(){
-
-  },
   components: {
     TodoList,
     TodoCreate
@@ -43,6 +40,12 @@ export default {
       ]
     }
   },
+  methods: {
+    createTodo(todo){
+    this.todos.push(todo)
+   
+    }
+  }
 }
 </script>
 

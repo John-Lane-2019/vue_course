@@ -19,7 +19,7 @@
             </textarea>
           </div>
           <button
-            @click="createTodo" 
+            @click="submitForm" 
             type="button" 
             class="app-button is-primary">Confirm</button>
         </form> <!--default button type is "submit" which refreshes form -->
@@ -43,8 +43,13 @@ export default {
     }
   },
   methods: {
-    createTodo() {
-      console.log(this.form.title, this.form.description)
+    submitForm() {
+      this.$emit('formSubmitted', {...this.form})//... creates new object passes new form object to avoid problems of passing by reference
+      this.resetForm();
+    },
+    resetForm() {
+      this.form.title = '';
+      this.form.description = '';
     }
   }
 }
