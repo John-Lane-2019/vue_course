@@ -1,5 +1,5 @@
 <template>
-    <modal>
+    <modal ref="modal">
          <form class="app-form">
           <div class="form-control">
             <label class="label">Title</label>
@@ -37,18 +37,24 @@ export default {
       form: {
         title: '',
         description: ''
-      }
+      },
+      forceClose: false
     }
   },
   computed: {
     isFormValid(){
-      return this.form.title && this.form.description ? true: false;
+      return this.form.title.length >= 3 
+        && this.form.description.length >=3 ? true: false;
+    },
+    modal() {
+      return this.$refs.modal
     }
   },
   methods: {
     submitForm() {
       if (this.isFormValid) {
         this.$emit('formSubmitted', {...this.form})//... creates new object passes new form object to avoid problems of passing by reference
+        this.modal.close();
         this.resetForm();
       }
     },
