@@ -4,7 +4,7 @@
         <div class="todo-container">
           <todo-list :todos="todos"/>
           <div class="todo-create-btn-container">
-             <Modal/>
+             <TodoCreate/>
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
 </template>
 <script>
 import TodoList from "./components/TodoList";
-import Modal from "./components/Modal"
+import TodoCreate from "./components/TodoCreate";
 export default {
   name: 'app',
   created(){
@@ -20,7 +20,7 @@ export default {
   },
   components: {
     TodoList,
-    Modal
+    TodoCreate
   },
   data() {
     return {
