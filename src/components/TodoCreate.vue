@@ -25,14 +25,12 @@
         </form> <!--default button type is "submit" which refreshes form -->
     </modal>
 </template>
-
 <script>
 import Modal from "./Modal";
 
 export default {
     components: {
         Modal
-        
     },
     data() {
     return {
@@ -42,10 +40,17 @@ export default {
       }
     }
   },
+  computed: {
+    isFormValid(){
+      return this.form.title && this.form.description ? true: false;
+    }
+  },
   methods: {
     submitForm() {
-      this.$emit('formSubmitted', {...this.form})//... creates new object passes new form object to avoid problems of passing by reference
-      this.resetForm();
+      if (this.isFormValid) {
+        this.$emit('formSubmitted', {...this.form})//... creates new object passes new form object to avoid problems of passing by reference
+        this.resetForm();
+      }
     },
     resetForm() {
       this.form.title = '';
@@ -54,7 +59,5 @@ export default {
   }
 }
 </script>
-
 <style>
-
 </style>
