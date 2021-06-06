@@ -1,7 +1,7 @@
 <template>
     <modal ref="modal">
          <form class="app-form">
-          <div class="form-control">
+          <div class="form-control form-control-last">
             <label class="label">Title</label>
             <input
               v-model="form.title" 
@@ -17,6 +17,11 @@
               rows="5"
               cols="30">
             </textarea>
+            <div class="app-error">
+              <div class="form-error">
+                {{formError}}
+              </div>
+            </div>
           </div>
           <button
             @click="submitForm" 
@@ -38,7 +43,7 @@ export default {
         title: '',
         description: ''
       },
-      forceClose: false
+      formError: ''
     }
   },
   computed: {
@@ -53,9 +58,12 @@ export default {
   methods: {
     submitForm() {
       if (this.isFormValid) {
+        this.formError = ''
         this.$emit('formSubmitted', {...this.form})//... creates new object passes new form object to avoid problems of passing by reference
         this.modal.close();
         this.resetForm();
+      }else{
+        this.formError = 'Title and description must be greater than 3 characters long.'
       }
     },
     resetForm() {
@@ -65,5 +73,8 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
+  .form-error {
+    margin: 10px 0px;
+  }
 </style>

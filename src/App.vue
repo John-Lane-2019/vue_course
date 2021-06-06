@@ -43,7 +43,6 @@ export default {
   methods: {
     createTodo(todo){
     this.todos.push(todo)
-   
     }
   }
 }
@@ -59,7 +58,9 @@ export default {
   border-radius: 5px;
   text-align: left;
 }
-
+.app-error{
+    color: #ff1212;
+  }
 .app-button {
   font-size: 20px;
   padding: 10px;
@@ -69,20 +70,35 @@ export default {
   font-weight: bold;
 }
 
+.app-form.label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-input{
+  padding: 10px;
+  font-size: 17px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-control-last {
+  margin-bottom: 0;
+}
 .is-primary {
   background: green !important;
 }
-
 .app-button:hover {
   cursor: pointer;
 }
-
 .todo-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
 .todo-container{
   display:flex;
   flex-direction: column;
@@ -92,12 +108,9 @@ export default {
   /* justify-content: center; */
   border-radius: 5px;
 }
-
 .todo-create-btn-container {
   margin: 10px;
 }
-
-
 
 
 </style>
