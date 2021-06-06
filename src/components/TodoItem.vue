@@ -21,14 +21,14 @@
       <div class="form-control">
         <label class="label">Title</label>
         <input
-          :value="title" 
+          v-bind:value="title" 
           class="form-input" 
           type="text"/>
       </div>
       <div class="form-control form-control-last">
         <label class="label">Description</label>
         <textarea
-          :value="description" 
+          v-bind:value="description" 
           class="form-input" 
           rows="5" 
           cols="30">

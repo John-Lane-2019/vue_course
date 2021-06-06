@@ -13,36 +13,21 @@
 <script>
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
+import store from './assets/store'
 export default {
   name: 'app',
   components: {
     TodoList,
-    TodoCreate
+    TodoCreate,
   },
-  data() {
+  data(){
     return {
-      todos: [
-        {
-          _id: '1',
-          title: 'Walk the dog',
-          description: 'Go to the forest near the zoo'
-        },
-        {
-          _id: '2',
-          title: 'Buy bread',
-          description: 'Whole grain bread would be good'
-        },
-        {
-          _id: '3',
-          title: 'Learn Programming',
-          description: 'Preferably Tomorrow!'
-        }
-      ]
+      todos: store.state.todos
     }
   },
   methods: {
     createTodo(todo){
-    this.todos.push(todo)
+    store.createTodo(todo)//don't put store under components. It's not a component.
     }
   }
 }
