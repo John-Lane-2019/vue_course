@@ -91,6 +91,12 @@ export default {
 .is-primary {
   background: green !important;
 }
+.is-warning {
+  background-color: #47ca47;
+}
+.is-danger {
+  background-color: #ff5a5a;
+}
 .app-button:hover {
   cursor: pointer;
 }
