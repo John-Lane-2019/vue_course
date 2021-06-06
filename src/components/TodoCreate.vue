@@ -14,7 +14,7 @@
               v-model="form.description" 
               class="form-input" 
               type="text"
-              rows="5"
+              rows="2"
               cols="30">
             </textarea>
             <div class="app-error">

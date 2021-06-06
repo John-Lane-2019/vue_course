@@ -70,7 +70,13 @@ export default {
   font-weight: bold;
 }
 
-.app-form.label {
+/* .app-form.label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+} */
+
+.label {
   display: block;
   font-size: 18px;
   font-weight: bold;
@@ -92,10 +98,10 @@ export default {
   background: green !important;
 }
 .is-warning {
-  background-color: #47ca47;
+  background-color: orange;
 }
 .is-danger {
-  background-color: #ff5a5a;
+  background-color: red;
 }
 .app-button:hover {
   cursor: pointer;
