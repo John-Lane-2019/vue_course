@@ -25,9 +25,12 @@ export default {
       todos: store.state.todos
     }
   },
+  created(){
+
+  },
   methods: {
     createTodo(todo){
-    store.createTodo(todo)//don't put store under components. It's not a component.
+    store.dispatch('createTodo', todo)
     }
   }
 }
@@ -60,7 +63,6 @@ export default {
   font-size: 18px;
   font-weight: bold;
 } */
-
 .label {
   display: block;
   font-size: 18px;
