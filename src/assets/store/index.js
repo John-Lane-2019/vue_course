@@ -20,22 +20,27 @@ const store = {
     ]
   },
   actions: {
-    createTodo(state, todo){
-    todo._id = Math.random().toString(36).substr(2 ,7)
-    state.todos.push(todo)
+    createTodo(state, todo) {
+      todo._id = Math.random().toString(36).substr(2, 7)
+      state.todos.push(todo)
     },
-    updateTodos(state, todoToUpdate){
+    updateTodos(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
-      return todo._id === todoToUpdate._id
-    })
-    Vue.set(state.todos, index, todoToUpdate)//setter for a Vue instance property
-    state.todos[index] = todoToUpdate
+        return todo._id === todoToUpdate._id
+      })
+      Vue.set(state.todos, index, todoToUpdate)//setter for a Vue instance property
+    },
+    deleteTodo(state, todoId){
+      const index = state.todos.findIndex((todo) => {
+        return todo._id === todoId
+      })
+      state.todos.splice(index, 1)
+    }
   }
 }
-}
-store.dispatch = function(action, payload){//receives an action 'createTodo' from App.vue, and a payload todo
+store.dispatch = function (action, payload) {//receives an action 'createTodo' from App.vue, and a payload todo
   if (!this.actions[action]) {//if there's no action 'createTodo' throw an error
-    console.log('action: ',action)
+    console.log('action: ', action)
     throw new Error(`Action ${action} is not defined in the store.`)
   }
   return this.actions[action](this.state, payload)

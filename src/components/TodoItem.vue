@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     deleteTodo() {
-      alert("Deleting todo.");
+      store.dispatch('deleteTodo', this.todo._id)
     },
     editTodo() {
       store.dispatch('updateTodos', {...this.todo})

@@ -102,7 +102,7 @@ export default {
   display:flex;
   flex-direction: column;
   width: 400px;
-  min-height: 400px;
+  min-height: 200px;
   background-color: #ededed;
   /* justify-content: center; */
   border-radius: 5px;
