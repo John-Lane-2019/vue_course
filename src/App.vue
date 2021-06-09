@@ -57,27 +57,18 @@ export default {
   color: white;
   font-weight: bold;
 }
-
-/* .app-form.label {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-} */
 .label {
   display: block;
   font-size: 18px;
   font-weight: bold;
 }
-
 .form-input{
   padding: 10px;
   font-size: 17px;
 }
-
 .form-control {
   margin-bottom: 10px;
 }
-
 .form-control-last {
   margin-bottom: 0;
 }
@@ -110,6 +101,4 @@ export default {
 .todo-create-btn-container {
   margin: 10px;
 }
-
-
 </style>

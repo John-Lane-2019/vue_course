@@ -90,9 +90,6 @@ export default {
 .app-button.is-warning {
   margin-right: 5px;
 }
-/* .app-button.is-danger {
-  margin-right: 5px;
-} */
 .todo-item {
   background-color: gray;
   min-height: 70px;
