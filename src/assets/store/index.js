@@ -28,6 +28,8 @@ const store = {
       
       if (!todos) {
         Vue.set(state, 'todos', INITIAL_DATA.todos)
+      }else{
+        Vue.set(state, 'todos', JSON.parse(todos))
       }
 
       return state.todos  
@@ -35,20 +37,28 @@ const store = {
     createTodo(state, todo) {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)
+      persistData(state.todos)
     },
     updateTodos(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
         return todo._id === todoToUpdate._id
       })
       Vue.set(state.todos, index, todoToUpdate)//setter for a Vue instance property
+      persistData(state.todos)
     },
     deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
         return todo._id === todoId
       })
       state.todos.splice(index, 1)
+      persistData(state.todos)
     }
   }
+}
+
+function persistData(value) {
+  const stringifiedValue = JSON.stringify(value)
+  localStorage.setItem('app_todos', stringifiedValue)
 }
 store.dispatch = function (action, payload) {//receives an action 'createTodo' from App.vue, and a payload todo
   if (!this.actions[action]) {//if there's no action 'createTodo' throw an error
