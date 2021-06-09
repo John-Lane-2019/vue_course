@@ -31,27 +31,26 @@ const store = {
       }else{
         Vue.set(state, 'todos', JSON.parse(todos))
       }
-
       return state.todos  
     },
     createTodo(state, todo) {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)
-      persistData(state.todos)
+      return state.todos
     },
     updateTodos(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
         return todo._id === todoToUpdate._id
       })
       Vue.set(state.todos, index, todoToUpdate)//setter for a Vue instance property
-      persistData(state.todos)
+      return state.todos
     },
     deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
         return todo._id === todoId
       })
       state.todos.splice(index, 1)
-      persistData(state.todos)
+      return state.todos
     }
   }
 }
@@ -65,7 +64,12 @@ store.dispatch = function (action, payload) {//receives an action 'createTodo' f
     console.log('action: ', action)
     throw new Error(`Action ${action} is not defined in the store.`)
   }
-  return this.actions[action](this.state, payload)
+  const result = this.actions[action](this.state, payload)
+
+  if (!result) return
+
+  persistData(result)
+  return result
   /*returns the createTodo function of the actions property (notice key-value syntax)
     which takes 'state' and a todo as arguments. dispatch() delegates the function call
     which is a necessary feature of larger apps.*/
