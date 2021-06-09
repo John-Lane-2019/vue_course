@@ -87,11 +87,9 @@ export default {
 .app-button {
   font-size: 15px;
 }
-
 .app-button.is-warning {
   margin-right: 5px;
 }
-
 /* .app-button.is-danger {
   margin-right: 5px;
 } */

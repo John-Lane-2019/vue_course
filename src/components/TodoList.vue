@@ -14,12 +14,10 @@
     </div>
   </div>
 </template>
-
 <style scoped>
 .todo-list {
   flex: 1;
 }
-
 .no-todos {
     padding: 20px;
     font-size: 23px;
@@ -27,7 +25,6 @@
     text-align: center;
 }
 </style>
-
 <script>
 import TodoItem from "./TodoItem";
 export default {

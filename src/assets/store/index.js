@@ -1,25 +1,37 @@
 import Vue from 'vue'
+const INITIAL_DATA = {
+  todos: [
+    {
+      _id: '1',
+      title: 'Walk the dog',
+      description: 'Go to the forest near the zoo'
+    },
+    {
+      _id: '2',
+      title: 'Buy bread',
+      description: 'Whole grain bread would be good'
+    },
+    {
+      _id: '3',
+      title: 'Learn Programming',
+      description: 'Preferably Tomorrow!'
+    }
+  ]
+}
 const store = {
   state: {
-    todos: [
-      {
-        _id: '1',
-        title: 'Walk the dog',
-        description: 'Go to the forest near the zoo'
-      },
-      {
-        _id: '2',
-        title: 'Buy bread',
-        description: 'Whole grain bread would be good'
-      },
-      {
-        _id: '3',
-        title: 'Learn Programming',
-        description: 'Preferably Tomorrow!'
-      }
-    ]
+    todos: []
   },
   actions: {
+    initStore(state) {
+      const todos = localStorage.getItem('app_todos')
+      
+      if (!todos) {
+        Vue.set(state, 'todos', INITIAL_DATA.todos)
+      }
+
+      return state.todos  
+    },
     createTodo(state, todo) {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)
@@ -30,7 +42,7 @@ const store = {
       })
       Vue.set(state.todos, index, todoToUpdate)//setter for a Vue instance property
     },
-    deleteTodo(state, todoId){
+    deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
         return todo._id === todoId
       })

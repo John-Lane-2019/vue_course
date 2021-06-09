@@ -25,8 +25,8 @@ export default {
       todos: store.state.todos
     }
   },
-  created(){
-
+  created(){//gets called when Vue instance initialized
+    this.todos = store.dispatch('initStore')
   },
   methods: {
     createTodo(todo){
